@@ -17,6 +17,9 @@ public class NewBehaviourScript : MonoBehaviour {
     void PlayerMove() {
     	//CONTROLS
     	moveX = Input.GetAxis("Horizontal");
+        if (Input.GetButtonDown ("Jump")){
+            Jump();
+        }
     	//ANIMATIONS
     	//PLAYER DIRECTION
     	if (moveX < 0.0f && facingRight == false) {
@@ -31,9 +34,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
     void Jump() {
      	//JUMPING CODE
+        GetComponent<Rigidbody2D>().AddForce (Vector2.up * playerJumpPower);
     }
 
     void FlipPlayer() {
-
     }
 }
